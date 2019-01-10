@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+echo "Assembling GOPATH..."
+PACKAGE_NAME="github.com/jarifibrahim/fabric8-foo"
+export GOPATH=`realpath $HOME/go`
+echo "Assembling GOPATH... DONE"
+
+PACKAGE_NAME="github.com/jarifibrahim/fabric8-foo"
+cd $GOPATH/src/$PACKAGE_NAME
+
+exec bin/fabric8-foo

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+echo "Assembling GOPATH..."
+PACKAGE_NAME="github.com/jarifibrahim/fabric8-foo"
+export GOPATH=`realpath $HOME/go`
+echo "Assembling GOPATH... DONE"
+
+
+mkdir -p $GOPATH/src/$PACKAGE_NAME
+mv /tmp/src/* $GOPATH/src/$PACKAGE_NAME
+cd $GOPATH/src/$PACKAGE_NAME
+
+# Building project using makefile build target
+echo "Running make build"
+make build
